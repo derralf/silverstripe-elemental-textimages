@@ -12,7 +12,7 @@
     "prefer-stable": true,
     "require": {
         "dnadesign/silverstripe-elemental": "^4 || ^5",
-        "silverstripe/linkfield": "^4",
+        "silverstripe/linkfield": "^3",
         "jonom/focuspoint": "^5.0",
         "bummzack/sortablefile": "^2.2"
     },
