@@ -5,27 +5,19 @@ namespace Derralf\Elements\TextImages\Element;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use DNADesign\Elemental\Models\BaseElement;
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Assets\Image;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\Tab;
+use SilverStripe\LinkField\Form\LinkField;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\Requirements;
 use SilverStripe\View\SSViewer;
 use SilverStripe\View\ThemeResourceLoader;
 
 class ElementTextImages extends BaseElement
 {
-
-//    protected function init()
-//    {
-//        parent::init();
-//        die('ElementTextImages >  init()');
-//        Requirements::javascript('derralf/elemental-textimages: client/dist/js/lightgallery.init.js');
-//    }
 
     public function getType()
     {
@@ -102,11 +94,11 @@ class ElementTextImages extends BaseElement
             }
 
             // ReadMoreLink: use Linkfield
-            $ReadMoreLink = LinkField::create('ReadMoreLinkID', 'Link');
+            $ReadMoreLink = LinkField::create('ReadMoreLink', 'Link');
             $fields->replaceField('ReadMoreLinkID', $ReadMoreLink);
 
             // Images Tab
-            $fields->insertAfter(new Tab('ImagesTab', _t(__CLASS__ . '.ImagesTab','Images') ), 'Main');
+            $fields->insertAfter('Main', new Tab('ImagesTab', _t(__CLASS__ . '.ImagesTab','Images') ));
 
             //  Images
             $fields->removeByName('Images');
@@ -161,7 +153,6 @@ class ElementTextImages extends BaseElement
     public function OtherImages($offset=1)
     {
         $result = $this->Images()->Sort('SortOrder')->limit(null, $offset);
-        //var_dump($offset);
 
         if ($result && $result->count()) {
             $images = new ArrayList();
@@ -173,6 +164,7 @@ class ElementTextImages extends BaseElement
             }
             return $images;
         }
+        return null;
     }
 
     public function getOtherImagesTemplate()
@@ -207,13 +199,6 @@ class ElementTextImages extends BaseElement
             SSViewer::config()->uninherited('theme')
         );
         return $test_has_template;
-
-
-       // $template = $this->getOtherImagesTemplate();
-       // $template_exists = SSViewer::hasTemplate($template);
-       // if($template_exists){
-       //     return $template;
-       // }
     }
 
 
@@ -227,6 +212,7 @@ class ElementTextImages extends BaseElement
         if($this->OtherImages($offset) && $this->getOtherImagesTemplateExists()) {
             return $this->OtherImages($offset)->renderWith($this->getOtherImagesTemplate());
         }
+        return null;
     }
 
 
