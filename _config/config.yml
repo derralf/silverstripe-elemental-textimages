@@ -10,20 +10,41 @@
 # basic/default config
 #Derralf\Elements\TextImages\Element\ElementTextImages:
 #  styles:
+#    #### Bootstrap 3 #########################################
 #    OneRightFiftyFifty: "Bild rechts, 50%"
 #    OneLeftFiftyFifty: "Bild links, 50%"
 #    OneRight: "Bild rechts, 33%"
 #    OneLeft: "Bild links, 33%"
 #    OneTop: "Bild oben"
 #    OneTop3by1: "Bild oben, Format 3:1"
+#    #### Bootstrap 4 #########################################
+#    BS4OneLeftFiftyFifty: "(BS4) Bild links, 50%"
+#    BS4OneRightFiftyFifty: "(BS4) Bild rechts, 50%"
+#    BS4OneLeft: "(BS4) Bild lonks, 33%"
+#    BS4OneRight: "(BS4) Bild rechts, 33%"
+#    BS4OneLeft25Square: "(BS4) Bild links, 25%, quadratisch"
+#    #### Bootstrap 5 #########################################
+#    BS5OneLeftFiftyFifty: "(BS5) Bild links, 50%"
+#    BS5OneRightFiftyFifty: "(BS5) Bild rechts, 50%"
+#    BS5OneLeft: "(BS5) Bild links, 33%"
+#    BS5OneRight: "(BS5) Bild rechts, 33%"
 #  styles_default_description: ''
 #  image_view_modes:
+#      #### Bootstrap 3 #######################################
 #      HiddenGallery: "versteckte Galerie"
 #      TwoBelow: "2 weitere Bilder unten, quer"
 #      TwoBelowSquare: "2 weitere Bilder unten, quadratisch"
 #      ThreeBelow: "3 weitere Bilder unten"
 #      FourBelow: "4 weitere Bilder unten (4 Spalten)"
 #      AllBelow3Cols: "alle weiteren Bilder unten (3 Spalten)"
+#      #### Bootstrap 4 #######################################
+#      BS4HiddenGallery: "(BS4) versteckte Galerie"
+#      BS4AllBelow4Cols:  "(BS4) alle weiteren Bilder unten (4 Spalten)"
+#      BS4TwoBelow: "(BS4) 2 weitere Bilder unten, quer"
+#      #### Bootstrap 5 #########################################
+#      BS5HiddenGallery: "(BS5) versteckte Galerie"
+#      BS5AllBelow4Cols: "(BS5) alle weiteren Bilder unten (3 Spalten)"
+#      BS5TwoBelow: "(BS5) 2 weitere Bilder unten, quer"
 #  defaults:
 #    ImageViewMode: 'TwoBelow'
 #  readmore_link_class: 'btn btn-primary btn-readmore'
