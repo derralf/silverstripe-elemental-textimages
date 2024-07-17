@@ -5,13 +5,18 @@ A block that displays content with one or multiple Images.
 
 ## Requirements
 
-* SilverStripe CMS ^4.3
-* dnadesign/silverstripe-elemental ^4.0
-* sheadawson/silverstripe-linkable ^2.0@dev
-* jonom/focuspoint ^3.0
-* bummzack/sortablefile ^2.0
+* SilverStripe CMS ^5
+* dnadesign/silverstripe-elemental ^4 || ^5
+* silverstripe/linkfield ^4
+* jonom/focuspoint ^5
+* bummzack/sortablefile ^2.2
 
-For a SilverStripe 4.2 and Elemental 3.x compatible version of this module, please see the [1.x release line](https://github.com/derralf/silverstripe-elemental-textimages/tree/1.0#readme).
+For a SilverStripe 4.3 and Elemental 4.x compatible version of this module, please see the [2.x release line](https://github.com/derralf/silverstripe-elemental-textimages/tree/2.0#readme.
+
+Important:  
+Switched from `sheadawson/silverstripe-linkable` to `silverstripe/linkfield`  
+see migration guide here: https://github.com/silverstripe/silverstripe-linkfield
+
 
 ## Suggestions
 * derralf/elemental-styling
@@ -29,7 +34,7 @@ Modify `/templates/Derralf/Elements/TextImages/Includes/Title.ss` to your needs 
 
 ## Configuration
 
-A basic/default config. Add this to your **mysite/\_config/elements.yml**
+A basic/default config. Add this to your **mysite/\_config/elements.yml** and comment/uncomment/add/remove/modify the needed lines 
 
 Note the options for `styles` and `image_view_modes`, in which the templates contained in the extension are listed.
 
@@ -44,24 +49,46 @@ Name: elementaltextimages
 ---
 Derralf\Elements\TextImages\Element\ElementTextImages:
   styles:
-    '': "Standard (kein Bild beim Text)"
-    OneRightFiftyFifty: "Bild rechts, 50%"
-    OneLeftFiftyFifty: "Bild links, 50%"
-    OneRight: "Bild rechts, 33%"
-    OneLeft: "Bild links, 33%"
-    OneTop: "Bild oben"
-    OneTop3by1: "Bild oben, Format 3:1"
+#    #### Bootstrap 3 #########################################
+#    OneRightFiftyFifty: "Bild rechts, 50%"
+#    OneLeftFiftyFifty: "Bild links, 50%"
+#    OneRight: "Bild rechts, 33%"
+#    OneLeft: "Bild links, 33%"
+#    OneTop: "Bild oben"
+#    OneTop3by1: "Bild oben, Format 3:1"
+#    #### Bootstrap 4 #########################################
+#    BS4OneLeftFiftyFifty: "(BS4) Bild links, 50%"
+#    BS4OneRightFiftyFifty: "(BS4) Bild rechts, 50%"
+#    BS4OneLeft: "(BS4) Bild lonks, 33%"
+#    BS4OneRight: "(BS4) Bild rechts, 33%"
+#    BS4OneLeft25Square: "(BS4) Bild links, 25%, quadratisch"
+    #### Bootstrap 5 #########################################
+    BS5OneLeftFiftyFifty: "(BS5) Bild links, 50%"
+    BS5OneRightFiftyFifty: "(BS5) Bild rechts, 50%"
+    BS5OneLeft: "(BS5) Bild links, 33%"
+    BS5OneRight: "(BS5) Bild rechts, 33%"
+  styles_default_description: ''
   image_view_modes:
-      '': "keine weiteren Bilder unter dem Text anzeigen"
+      #### Bootstrap 3 #######################################
       HiddenGallery: "versteckte Galerie"
       TwoBelow: "2 weitere Bilder unten, quer"
       TwoBelowSquare: "2 weitere Bilder unten, quadratisch"
       ThreeBelow: "3 weitere Bilder unten"
       FourBelow: "4 weitere Bilder unten (4 Spalten)"
       AllBelow3Cols: "alle weiteren Bilder unten (3 Spalten)"
-  defaults:
-    ImageViewMode: 'TwoBelow'
+      #### Bootstrap 4 #######################################
+      BS4HiddenGallery: "(BS4) versteckte Galerie"
+      BS4AllBelow4Cols:  "(BS4) alle weiteren Bilder unten (4 Spalten)"
+      BS4TwoBelow: "(BS4) 2 weitere Bilder unten, quer"
+#      #### Bootstrap 5 #########################################
+#      BS5HiddenGallery: "(BS5) versteckte Galerie"
+#      BS5AllBelow4Cols: "(BS5) alle weiteren Bilder unten (3 Spalten)"
+#      BS5TwoBelow: "(BS5) 2 weitere Bilder unten, quer"
+#  defaults:
+#    ImageViewMode: 'TwoBelow'
   readmore_link_class: 'btn btn-primary btn-readmore'
+  
+  
 ```
 
 Additionally you may apply the default styles:
