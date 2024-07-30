@@ -58,7 +58,16 @@ class ElementTextImages extends BaseElement
     private static $belongs_many_many = [];
 
     private static $owns = [
-        'Images'
+        'Images',
+        'ReadMoreLink'
+    ];
+
+    private static array $cascade_deletes = [
+        'ReadMoreLink'
+    ];
+
+    private static $cascade_duplicates = [
+        'ReadMoreLink'
     ];
 
     private static $defaults = [
